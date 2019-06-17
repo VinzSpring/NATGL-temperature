@@ -40,15 +40,15 @@ def draw(bin_arr):
 
 def to_dec(bin_arr, big_endian=False):
     d = 0
-    if big_endian:
+    if not big_endian:
         bin_arr.reverse()
     for i in range(len(bin_arr)):
-        d += bin_arr[i] * pow(2, i)
+        d += bin_arr[i] * pow(2., i)
     return d
 
 
 def get_temp(val):
-    return val / (pow(2, 11) - 1) * (150 + 50) - 50
+    return val / (pow(2, 11) - 1.0) * 200. - 50.
 
 
 if __name__ == '__main__':
@@ -57,6 +57,7 @@ if __name__ == '__main__':
     draw(
         z1 + z2
     )
-    d = to_dec(z1[1:-1] + z2[1:-1])
+    b = z1[1:-1] + z2[1:-1]
+    d = to_dec(b)
     print(d)
     print(get_temp(d))
