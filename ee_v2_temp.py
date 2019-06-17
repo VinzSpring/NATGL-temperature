@@ -48,7 +48,7 @@ def to_dec(bin_arr, big_endian=False):
 
 
 def get_temp(val):
-    return val / (pow(2, 16) - 1) * (150 + 50) - 50
+    return val / (pow(2, 11) - 1) * (150 + 50) - 50
 
 
 if __name__ == '__main__':
@@ -57,4 +57,6 @@ if __name__ == '__main__':
     draw(
         z1 + z2
     )
-    print(get_temp(to_dec(z1[1:-1] + z2[1:-1])))
+    d = to_dec(z1[1:-1] + z2[1:-1])
+    print(d)
+    print(get_temp(d))
